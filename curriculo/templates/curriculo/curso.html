@@ -1,0 +1,14 @@
+{%extends "base.html" %}
+
+{%block titulo %} - {{ curso.sigla }} {% endblock %}
+
+{%block conteudo %}
+    <h1 class="text-center"> {{ curso.nome }} </h1>
+
+    <h5>Confira a grade curricular desta disciplina:</h5>
+
+    {% for d in curso.disciplina %}
+        <li class="text-xl-left" ><a href="{% url 'curriculo:disciplina' curso.sigla d.sigla %}"> {{ d.nome }} </a></li>
+    {% endfor %}
+
+{% endblock %}
